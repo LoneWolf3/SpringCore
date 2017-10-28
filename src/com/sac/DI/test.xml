@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+	<bean id="a" class="com.sac.DI.EmployeeSetter">
+		<property name="name" value="Eswar" />
+		<property name="age" value="24" />
+		<property name="country" value="India" />
+		<property name="suffixes">
+			<list>
+				<value>A</value>
+				<bean class="java.net.URL">
+					<constructor-arg value="http" />
+					<constructor-arg value="www.apress.com" />
+					<constructor-arg value="/" />
+				</bean>
+				<null />
+			</list>
+
+		</property>
+		<property name="suffixes2">
+			<map>
+				<entry key="type" value="A" />
+
+			</map>
+		</property>
+	</bean>
+
+	<bean id="b" class="com.sac.DI.EmployeeConstructor">
+
+		<constructor-arg value="10" type="int"></constructor-arg>
+	</bean>
+
+	<bean id="c" class="com.sac.DI.SeqGenConsAmb">
+
+		<!-- <constructor-arg value="30" /> <constructor-arg value="A" /> <property 
+			name="initial" value="100000" /> -->
+
+
+		<!-- <constructor-arg value="30" /> <constructor-arg value="100000" /> 
+			<property name="suffix" value="A" /> -->
+
+		<!-- <constructor-arg type="java.lang.String" value="30" /> <constructor-arg 
+			type="int" value="100000" /> <property name="suffix" value="A" /> -->
+
+
+		<!-- <constructor-arg type="int" value="100000" /> <constructor-arg type="java.lang.String" 
+			value="A" /> <property name="prefix" value="30" /> -->
+
+
+	<!-- 	<constructor-arg type="int" index="0" value="100000" />
+		<constructor-arg type="java.lang.String" index="1"
+			value="A" />
+		<property name="prefix" value="30" /> -->
+
+		<constructor-arg name="initial" value="100000" />
+		<constructor-arg name="suffix" value="A" />
+		<property name="prefix" value="30" />
+	</bean>
+
+
+
+</beans>
